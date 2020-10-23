@@ -15,6 +15,8 @@ elf	:= reptile.elf
 
 objects	:= \
 	core/main.o \
+	libs/fatfs/pff.o \
+	libs/fatfs/diskio.o \
 	mcu/common.o
 
 # FIXME: is -Wno-discarded-qualifiers really a good idea?
