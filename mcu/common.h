@@ -52,5 +52,12 @@ void timer_start(void);
 void timer_stop(void);
 void timer_init(void);
 
+/*
+ * SPI
+ */
+
+void spi_send(void *data, size_t len);
+void spi_recv(void *data, size_t len);
+
 #endif
 
