@@ -10,9 +10,13 @@
 #ifndef CORE_GCODE_H
 #define CORE_GCODE_H
 
+#include <stddef.h>
+
 struct gcode {
 
 };
+
+void gcode_parse(const void *block, size_t len);
 
 #endif
 

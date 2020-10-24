@@ -12,6 +12,7 @@
 #include <misc/log.h>
 #include <core/drive.h>
 #include <core/bus.h>
+#include <core/gcode.h>
 #include <core/temperature.h>
 
 static struct task stream_reader_task;
@@ -52,6 +53,8 @@ static void stream_reader_handler(void)
 		is_printing = false;
 		return;
 	}
+
+	gcode_parse(buffer, read);
 }
 
 void print_system_init(void)

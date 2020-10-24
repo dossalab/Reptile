@@ -8,4 +8,15 @@
  */
 
 #include <core/gcode.h>
+#include <string.h>
+
+static void gcode_handle_line(const char *line)
+{
+
+}
+
+void gcode_parse(const void *block, size_t len)
+{
+
+}
 
