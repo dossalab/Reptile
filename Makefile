@@ -15,6 +15,7 @@ elf	:= reptile.elf
 
 objects	:= \
 	core/main.o \
+	core/tasks.o \
 	libs/crc7.o \
 	libs/fatfs/pff.o \
 	libs/fatfs/diskio.o \
