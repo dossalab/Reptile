@@ -17,5 +17,14 @@
 #define BOARD_UART_TX_PIN	20
 #define BOARD_UART_RX_PIN	19
 
+/* SPI */
+#define BOARD_SPI_MOSI_PIN	25
+#define BOARD_SPI_MISO_PIN	26
+#define BOARD_SPI_SCK_PIN	27
+
+/* SD card */
+#define BOARD_SDCARD_CS_PORT	NRF_P0
+#define BOARD_SDCARD_CS_PIN	28
+
 #endif
 
