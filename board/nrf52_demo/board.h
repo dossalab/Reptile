@@ -26,5 +26,9 @@
 #define BOARD_SDCARD_CS_PORT	NRF_P0
 #define BOARD_SDCARD_CS_PIN	28
 
+/* ADC (thermistors) */
+#define HOTEND_ADC_CHANNEL	0
+#define HEATBED_ADC_CHANNEL	1
+
 #endif
 
