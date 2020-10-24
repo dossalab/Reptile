@@ -40,6 +40,8 @@ void spi_send(void *data, size_t len)
 			;;
 		}
 
+		/* ignore read */
+		(void)NRF_SPI0->RXD;
 		NRF_SPI0->EVENTS_READY = 0;
 	}
 }
@@ -49,12 +51,14 @@ void spi_recv(void *data, size_t len)
 	uint8_t *ptr = data;
 
 	while (len--) {
-		*(ptr++) = NRF_SPI0->RXD;
+		/* Send dummy 0xFF to get data from the device */
+		NRF_SPI0->TXD = 0xFF;
 
 		while (!NRF_SPI0->EVENTS_READY) {
 			;;
 		}
 
+		*(ptr++) = NRF_SPI0->RXD;
 		NRF_SPI0->EVENTS_READY = 0;
 	}
 }
