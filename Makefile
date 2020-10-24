@@ -19,6 +19,7 @@ objects	:= \
 	core/temperature.o \
 	core/gcode.o \
 	core/bus.o \
+	core/print.o \
 	core/drive.o \
 	libs/crc7.o \
 	libs/fatfs/pff.o \
