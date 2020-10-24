@@ -18,6 +18,7 @@ objects	:= \
 	libs/crc7.o \
 	libs/fatfs/pff.o \
 	libs/fatfs/diskio.o \
+	misc/delay.o \
 	mcu/common.o
 
 # FIXME: is -Wno-discarded-qualifiers really a good idea?
