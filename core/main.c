@@ -5,21 +5,25 @@
  * Roman Luitko, 2020
  */
 
-#include <libs/fatfs/pff.h>
-#include <mcu/common.h>
+#include <arch/common.h>
+#include <board/common.h>
+#include <core/tasks.h>
+#include <core/temperature.h>
+#include <misc/log.h>
 
 void main(void)
 {
-	FATFS fatfs;
-	FRESULT ret;
+	board_init();
+	log_i("booting reptile...");
 
-	ret = pf_mount(&fatfs);
-	if (ret != FR_OK) {
-		uart_printf("unable to mount filesystem");
-	}
+	task_system_init();
+	temperature_system_init();
+	irq_enable();
+
+	log_i("ready");
 
 	while (1) {
-		;;
+		tasks_update();
 	}
 }
 
