@@ -12,6 +12,9 @@
 
 #define TEMPERATURE_POLL_INTERVAL	1000
 
+void temperature_start_heating(int hotend_temp, int heatbed_temp);
+void temperature_stop_heating(void);
+
 void temperature_system_init(void);
 
 #endif
