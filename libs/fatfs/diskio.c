@@ -7,14 +7,25 @@
  * Roman Luitko, 2020
  */
 
+#include <drivers/sdcard.h>
+#include <board/common.h>
 #include "diskio.h"
+
+static struct sdcard card;
 
 /*
  * Initialize Disk Drive
  */
 DSTATUS disk_initialize(void)
 {
-	return STA_NOINIT;
+	DSTATUS ret = 0;
+
+	sdcard_init(&card, BOARD_SDCARD_CS_PORT, BOARD_SDCARD_CS_PIN);
+	if (!sdcard_probe(&card)) {
+		ret |= STA_NOINIT;
+	}
+
+	return ret;
 }
 
 /*
@@ -27,6 +38,10 @@ DSTATUS disk_initialize(void)
  */
 DRESULT disk_readp(BYTE* buff, DWORD sector, UINT offset, UINT count)
 {
-	return RES_ERROR;
+	if (sdcard_read(&card, buff, sector, offset, count) < 0) {
+		return RES_ERROR;
+	}
+
+	return RES_OK;
 }
 

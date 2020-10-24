@@ -18,6 +18,7 @@ objects	:= \
 	libs/crc7.o \
 	libs/fatfs/pff.o \
 	libs/fatfs/diskio.o \
+	drivers/sdcard.o \
 	misc/delay.o \
 	mcu/common.o
 
