@@ -59,5 +59,9 @@ void timer_init(void);
 void spi_send(void *data, size_t len);
 void spi_recv(void *data, size_t len);
 
+/* ADC */
+uint16_t adc_read(int channel);
+void adc_init(int channel);
+
 #endif
 

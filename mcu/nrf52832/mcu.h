@@ -13,4 +13,5 @@
 #include <mcu/nrf52832/system.h>
 #include <mcu/nrf52832/timer.h>
 #include <mcu/nrf52832/spi.h>
+#include <mcu/nrf52832/adc.h>
 

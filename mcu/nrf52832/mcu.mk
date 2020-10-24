@@ -19,5 +19,6 @@ objects += \
 	$(this-dir)gpio.o \
 	$(this-dir)system.o \
 	$(this-dir)timer.o \
-	$(this-dir)spi.o
+	$(this-dir)spi.o \
+	$(this-dir)adc.o
 
