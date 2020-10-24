@@ -26,5 +26,6 @@ void board_init(void)
 
 	gpio_out(BOARD_LED_PORT, BOARD_LED_PIN);
 	uart_init(BOARD_UART_TX_PIN, BOARD_UART_RX_PIN, UART_BAUD_9600);
+	spi_init(BOARD_SPI_MOSI_PIN, BOARD_SPI_MISO_PIN, BOARD_SPI_SCK_PIN);
 }
 
