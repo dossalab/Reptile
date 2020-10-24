@@ -10,11 +10,11 @@
 
 #include <mcu/common.h>
 
-#define log_e(...) \
-	uart_printf("[err]\t" __VA_ARGS__ "\n\r")
+#define log_e(format, ...) \
+	uart_printf("[err]\t" format "\n\r", ##__VA_ARGS__)
 
-#define log_i(...) \
-	uart_printf("[info]\t" __VA_ARGS__ "\n\r")
+#define log_i(format, ...) \
+	uart_printf("[info]\t" format "\n\r", ##__VA_ARGS__)
 
 #endif
 
