@@ -12,6 +12,11 @@
 
 #include <stdint.h>
 
+union u16_bytes {
+	uint16_t u16;
+	uint8_t bytes[2];
+};
+
 union u32_bytes {
 	uint32_t u32;
 	uint8_t bytes[4];
