@@ -24,7 +24,7 @@ static void drive_management_task_handler(void)
 
 	if (pf_mount(&fatfs) == FR_OK) {
 		drive_mounted = true;
-		log_i("drive mounted");
+		bus_send(DRIVE_MOUNTED_MSG, NULL);
 	}
 }
 
