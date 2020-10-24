@@ -9,6 +9,7 @@
 #include <board/common.h>
 #include <core/tasks.h>
 #include <core/temperature.h>
+#include <core/drive.h>
 #include <misc/log.h>
 
 void main(void)
@@ -18,6 +19,8 @@ void main(void)
 
 	task_system_init();
 	temperature_system_init();
+	drive_management_init();
+
 	irq_enable();
 
 	log_i("ready");
