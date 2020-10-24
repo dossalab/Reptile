@@ -18,6 +18,7 @@ objects	:= \
 	core/tasks.o \
 	core/temperature.o \
 	core/gcode.o \
+	core/bus.o \
 	core/drive.o \
 	libs/crc7.o \
 	libs/fatfs/pff.o \
