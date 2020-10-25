@@ -75,8 +75,8 @@ void temperature_stop_heating(void)
 
 void temperature_system_init(void)
 {
-	thermistor_init(&hotend_thermistor, HOTEND_ADC_CHANNEL);
-	thermistor_init(&heatbed_thermistor, HEATBED_ADC_CHANNEL);
+	thermistor_init(&hotend_thermistor, &epson_100k, HOTEND_ADC_CHANNEL);
+	thermistor_init(&heatbed_thermistor, &epson_100k, HEATBED_ADC_CHANNEL);
 
 	task_init(&temperature_task, temperature_task_handler, \
 				TEMPERATURE_POLL_INTERVAL);

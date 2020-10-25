@@ -27,6 +27,7 @@ objects	:= \
 	libs/fatfs/diskio.o \
 	drivers/thermistor.o \
 	drivers/sdcard.o \
+	res/temptables.o \
 	misc/delay.o \
 	mcu/common.o
 
