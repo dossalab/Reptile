@@ -20,7 +20,7 @@ void uart_puts(const char *msg)
 void uart_printf(const char *fmt, ...)
 {
 	va_list arg;
-	char buf[64];
+	static char buf[64];
 
 	va_start(arg, fmt);
 	vsnprintf(buf, sizeof(buf), fmt, arg);
