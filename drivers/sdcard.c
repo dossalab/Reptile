@@ -57,10 +57,13 @@ static inline void sdcard_unselect(struct sdcard *handle)
  */
 static inline void sdcard_wakeup(struct sdcard *handle)
 {
-	uint8_t dummy[10];
+	uint8_t dummy;
 
 	gpio_set(handle->cs_port, handle->cs_pin);
-	spi_recv(dummy, sizeof(dummy));
+
+	for (int i = 0; i < 10; i++) {
+		spi_read_one_byte();
+	}
 }
 
 static uint8_t sdcard_send_cmd(struct sdcard *handle, uint8_t cmd, uint32_t arg)
