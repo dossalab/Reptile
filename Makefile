@@ -16,6 +16,7 @@ elf	:= reptile.elf
 objects	:= \
 	core/main.o \
 	core/tasks.o \
+	core/motion.o \
 	core/temperature.o \
 	core/gcode.o \
 	core/bus.o \
