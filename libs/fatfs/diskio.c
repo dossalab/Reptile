@@ -38,7 +38,7 @@ DSTATUS disk_initialize(void)
  */
 DRESULT disk_readp(BYTE* buff, DWORD sector, UINT offset, UINT count)
 {
-	if (sdcard_read(&card, buff, sector, offset, count) < 0) {
+	if (!sdcard_read(&card, buff, sector, offset, count)) {
 		return RES_ERROR;
 	}
 

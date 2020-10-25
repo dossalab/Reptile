@@ -31,7 +31,7 @@ struct sdcard {
 #define SDCARD_RECEIVE_RETRIES	10
 #define SDCARD_READ_TIMEOUT	4000
 
-int sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
+bool sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
 					uint32_t offset, size_t count);
 
 bool sdcard_probe(struct sdcard *handle);

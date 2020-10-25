@@ -108,7 +108,7 @@ static uint32_t sdcard_get_extended_answer(struct sdcard *card)
 	return be32_to_cpu(answer.u32);
 }
 
-int sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
+bool sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
 					uint32_t offset, size_t count)
 {
 	uint8_t answer;
@@ -118,7 +118,7 @@ int sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
 
 	if (sdcard_send_cmd(handle, CMD17, sector) != 0) {
 		sdcard_unselect(handle);
-		return 0;
+		return false;
 	}
 
 	for (int i = 0; i < SDCARD_READ_TIMEOUT; i++) {
@@ -128,25 +128,28 @@ int sdcard_read(struct sdcard *handle, uint8_t *buff, uint32_t sector, \
 		}
 	}
 
+	if (answer != 0xFE) {
+		sdcard_unselect(handle);
+		return false;
+	}
+
 	/* Data block arrived */
-	if (answer == 0xFE) {
-		trailing = 512 - offset - count;
+	trailing = 512 - offset - count;
 
-		/* Skip leading bytes in the sector */
-		while (offset--) {
-			spi_read_one_byte();
-		}
+	/* Skip leading bytes in the sector */
+	while (offset--) {
+		spi_read_one_byte();
+	}
 
-		spi_recv(buff, count);
+	spi_recv(buff, count);
 
-		/* Skip trailing bytes in the sector */
-		while (trailing--) {
-			spi_read_one_byte();
-		}
+	/* Skip trailing bytes in the sector */
+	while (trailing--) {
+		spi_read_one_byte();
 	}
 
 	sdcard_unselect(handle);
-	return 0;
+	return true;
 }
 
 /* just checks the pattern 0xAA */
